@@ -1,7 +1,28 @@
+{% load static %}
 <header class="header">
-    <nav>
+    <nav class="navbar">
         <div class="brand">
-            <a href="home">KKS Infotech</a>
+            <a href="{% url 'home' %}">
+                <img src="{% static 'images/logo.png' %}" alt="KKS Infotech logo" class="w-10 h-10 bg-white rounded p-1">
+                KKS Infotech
+            </a>
         </div>
-    </nav>
+        <div class="main-menu" id="main-menu">
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'home' %}">About</a></li>
+                <li><a href="{% url 'home' %}">Contact</a></li>
+            </ul>
+            <a href="{% url 'home' %}" class="login">Login</a>
+        </div>
+        {% comment %}  {% endcomment %}
+        <div class="md:hidden text-white text-3xl font-bold" onclick="show_menu(this)">&#9776;</div>
+    </nav>    
 </header>
+
+<script>
+    function show_menu(e){
+        const mainMenu = document.getElementById('main-menu');
+        mainMenu.classList.toggle('show-main-menu');
+    }
+</script>

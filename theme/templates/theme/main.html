@@ -6,12 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}SMS|KKS Infotech{% endblock title %}</title>
     <link rel="stylesheet" href="{% static "css/tailwind.css" %}">
-    <link rel="stylesheet" href="{% static "css/layout.css" %}">
 </head>
 <body class="main-layout">
     {% include "theme/components/header.html" %}
     {% comment %} {% include "theme/components/notification.html" %} {% endcomment %}
-    {% include "theme/components/sidebar.html" %}
+    {% comment %} {% include "theme/components/sidebar.html" %} {% endcomment %}
     <main class="main">
         {% block content %}{% endblock content %}
     </main>

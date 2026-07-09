@@ -4,3 +4,69 @@
 @source "../**/templates/**/*.html";
 
 @custom-variant dark (&:where(.dark, .dark *));
+
+h1{
+    @apply text-2xl lg:text-3xl xl:text-4xl font-bold text-gray-950;
+}
+
+.main-layout{
+    @apply w-full h-screen bg-amber-300 flex flex-col items-start justify-start;
+}
+
+.header{
+    @apply w-full p-2 bg-violet-950;
+}
+
+.navbar{
+    @apply flex items-center justify-between px-4 lg:px-8 xl:px-12;
+}
+
+.brand a{
+    @apply flex items-center justify-center gap-1 text-2xl font-bold text-lime-200 text-shadow-2xs text-shadow-amber-200;
+}
+
+.main-menu{
+    @apply flex items-center justify-center gap-5;
+}
+
+.main-menu ul{
+    @apply flex items-center justify-center gap-4;
+}
+
+.main-menu ul li a{
+    @apply text-lime-200 font-bold transition-all duration-300 ease-in-out;
+    &:hover{
+        @apply text-lime-500 text-shadow-2xs;
+    }
+}
+
+.login{
+    @apply bg-linear-to-r from-lime-400 to-rose-400 text-slate-950 font-bold text-shadow-lg shadow-2xs shadow-rose-200 px-4 py-2 rounded transition-all duration-1000 ease-in-out;
+    &:hover{
+        @apply bg-linear-to-r from-rose-600 to-lime-600;
+    }
+}
+
+@media (width <= 768px){
+    .main-menu{
+        @apply fixed top-14 -right-full pt-8 flex-col bg-violet-950 justify-start gap-10 transition-all duration-500 ease-in-out;
+        width: 100dvw;
+        min-height: calc(100dvh - 56px);
+    }
+
+    .main-menu ul{
+        @apply flex-col gap-6;
+    }
+
+    .show-main-menu{
+        @apply right-0;
+    }
+}
+
+.main{
+    @apply w-full flex-1 bg-amber-50;
+}
+
+.footer{
+    @apply w-full;
+}
