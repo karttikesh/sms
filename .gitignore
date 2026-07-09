@@ -1,0 +1,7 @@
+node/node_modules/
+node/package-lock.json
+node/package.json
+static/css/tailwind.css
+*/migrations/*
+venv/
+db.sqlite3
