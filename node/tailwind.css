@@ -41,9 +41,9 @@ h1{
 }
 
 .login{
-    @apply bg-linear-to-r from-green-400 to-yellow-400 text-rose-700 font-bold text-shadow-sm text-shadow-slate-900 shadow-2xs shadow-rose-200 px-8 py-2 rounded transition-all duration-1000 ease-in-out;
+    @apply bg-linear-to-r from-pink-300 to-pink-600 text-slate-50 font-bold text-shadow-sm text-shadow-gray-400 shadow-2xs shadow-rose-200 px-8 py-2 rounded transition-all duration-1000 ease-in-out;
     &:hover{
-        @apply bg-linear-to-r from-yellow-500 to-green-500;
+        @apply bg-linear-to-r from-pink-400 to-pink-700;
     }
 }
 

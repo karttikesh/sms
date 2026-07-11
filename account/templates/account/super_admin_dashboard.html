@@ -1,0 +1,22 @@
+{% extends "theme/admin.html" %}
+
+{% block title %}
+    Super Admin Dashboard
+{% endblock title %}
+
+{% block content %}
+    <h2 class="text-3xl text-center font-bold py-4">Super Admin Dashboard</h2>
+    <hr>
+    <h3 class="text-xl font-bold">Dashboard</h3>
+    <ul>
+        <li><a href="{% url 'super_admin_dashboard' %}">super_admin_dashboard</a></li>
+        <li><a href="{% url 'admin_dashboard' %}">admin_dashboard</a></li>
+        <li><a href="{% url 'principal_dashboard' %}">principal_dashboard</a></li>
+        <li><a href="{% url 'accountant_dashboard' %}">accountant_dashboard</a></li>
+        <li><a href="{% url 'teacher_dashboard' %}">teacher_dashboard</a></li>
+        <li><a href="{% url 'class_teacher_dashboard' %}">class_teacher_dashboard</a></li>
+        <li><a href="{% url 'transporter_dashboard' %}">transporter_dashboard</a></li>
+        <li><a href="{% url 'cundoctor_dashboard' %}">cundoctor_dashboard</a></li>
+        <li><a href="{% url 'parent_dashboard' %}">parent_dashboard</a></li>
+    </ul>
+{% endblock content %}
