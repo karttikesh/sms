@@ -1,11 +1,22 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}KKS Infotech|Admin{% endblock title %}</title>
+    <link rel="stylesheet" href="{% static 'css/tailwind.css' %}">
 </head>
-<body>
-    {% block content %}{% endblock content %}
+<body class="admin_layout">
+    {% include "theme/components/admin_header.html" %}
+    <main class="admin-main">
+        {% block content %}{% endblock content %}
+    </main>
+
+    <footer class="admin-footer">
+        <div class="bg-gray-900 text-white text-center p-4">
+            <p>Copyright &copy; 2026-27 <a href="https://kksinfotech.com/" class="text-green-500 font-bold">KKS Infotech</a>. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>
