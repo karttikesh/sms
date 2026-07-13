@@ -1,9 +1,23 @@
 {% load static %}
-<header class="admin-header">
-    <div class="admin-header-brand">
-        <a href="{% url 'super_admin_dashboard' %}">
-            <img src="{% static 'images/logo.png' %}" alt="Brand Logo">
+<header class="bg-linear-to-r from-rose-950 to-violet-950 p-2 sticky top-0">
+    <div class="text-2xl text-white lg:hidden absolute top-4 left-4 transition-all duration-300 ease-in-out" onclick="expand_admin_sidebar(this)"><i class="fa-solid fa-arrow-right-to-bracket"></i></div>
+    <div class="flex items-center justify-center">
+        <a href="{% url 'super_admin_dashboard' %}" class="flex items-center justify-center gap-5 text-zinc-200 text-2xl font-bold">
+            <img src="{% static 'images/logo.png' %}" alt="Brand Logo" class="h-10 w-10 bg-white p-1 rounded">
             KKS Infotech
         </a>
     </div>
 </header>
+
+<script>
+    function expand_admin_sidebar(e){
+        e.classList.toggle('rotate-180');
+        const sidebar = document.querySelector('#admin-sidebar');
+        const sidebarLinkText = document.querySelectorAll('.sidebar-link-text');
+        sidebar.classList.toggle('w-18');
+        sidebar.classList.toggle('w-65');
+        sidebarLinkText.forEach((e) =>{
+            e.classList.toggle('hidden');
+        });
+    }
+</script>

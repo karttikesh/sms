@@ -6,17 +6,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}KKS Infotech|Admin{% endblock title %}</title>
     <link rel="stylesheet" href="{% static 'css/tailwind.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
+    <style>
+        .admin-layout{
+            width: 100dvw;
+            min-height: 100dvh;
+            display: grid;
+            grid-template-columns: auto 1fr;
+            grid-template-rows: auto 1fr auto;
+            grid-template-areas: "header header"
+            "sidebar main"
+            "footer footer";
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+
+        header{
+            grid-area: header;
+            padding: 0.5rem 1rem;
+        }
+        main{
+            grid-area: main;
+        }
+        footer{
+            grid-area: footer;
+            padding: 1rem;
+        }
+    </style>
 </head>
-<body class="admin_layout">
+<body class="admin-layout">
     {% include "theme/components/admin_header.html" %}
-    <main class="admin-main">
+    {% include "theme/components/admin_sidebar.html" %}
+    <main class="w-full flex-1">
         {% block content %}{% endblock content %}
     </main>
 
-    <footer class="admin-footer">
-        <div class="bg-gray-900 text-white text-center p-4">
-            <p>Copyright &copy; 2026-27 <a href="https://kksinfotech.com/" class="text-green-500 font-bold">KKS Infotech</a>. All rights reserved.</p>
-        </div>
+    <footer class="w-full bg-gray-900 text-white text-center p-4">
+        <p>Copyright &copy; 2026-27 <a href="https://kksinfotech.com/" class="text-green-500 font-bold">KKS Infotech</a>. All rights reserved.</p>
     </footer>
 </body>
 </html>

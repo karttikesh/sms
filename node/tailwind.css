@@ -14,7 +14,7 @@ h1{
 }
 
 .header{
-    @apply w-full p-2 bg-linear-to-r from-rose-900 to-violet-950;
+    @apply w-full p-2 bg-linear-to-r from-rose-900 to-violet-950 sticky top-0;
 }
 
 .navbar{
@@ -38,6 +38,10 @@ h1{
     &:hover{
         @apply text-lime-500 text-shadow-2xs;
     }
+}
+
+.main-menu ul li a.active{
+    @apply text-lime-500 text-shadow-2xs;
 }
 
 .login{
@@ -70,3 +74,7 @@ h1{
 .footer{
     @apply w-full;
 }
+
+
+
+/* Admin */

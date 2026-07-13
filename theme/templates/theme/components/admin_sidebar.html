@@ -1,0 +1,31 @@
+{% load static %}
+<aside class="bg-linear-to-b from-rose-950 to-violet-950 w-18 lg:w-65" id="admin-sidebar">
+    <div class="sticky top-14">
+        <ul class="p-2 lg:p-4">
+            <li class="sidebar-links bg-rose-200 hover:bg-rose-300 transition-all duration-300 ease-in-out rounded mb-1 p-2">
+                <a href="{% url 'super_admin_dashboard' %}" class="text-cyan-100 flex items-center gap-3 font-bold">
+                    <img src="{% static 'images/icon_dashboard.png' %}" alt="Dashboard" class="w-10 h-10">
+                    <span class="sidebar-link-text text-violet-950 hidden lg:block">Dashboard</span>
+                </a>
+            </li>
+            <li class="sidebar-links bg-rose-200 hover:bg-rose-300 transition-all duration-300 ease-in-out rounded mb-1 p-2">
+                <a href="{% url 'admin_dashboard' %}" class="text-cyan-100 flex items-center gap-4 font-bold">
+                    <img src="{% static 'images/icon_users.png' %}" alt="Dashboard" class="w-10 h-10">
+                    <span class="sidebar-link-text text-violet-950 hidden lg:block">Users</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</aside>
+
+<script>
+    const sidebarLinks = document.querySelectorAll('.sidebar-links');
+    sidebarLinks.forEach((e) => {
+        var links = e.children[0];
+        if(window.location.href === links.href){
+            e.classList.add('bg-rose-300');
+        }else{
+            e.classList.remove('bg-rose-300');
+        }
+    });
+</script>

@@ -9,9 +9,9 @@
         </div>
         <div class="main-menu" id="main-menu">
             <ul>
-                <li><a href="{% url 'home' %}">Home</a></li>
-                <li><a href="{% url 'home' %}">About</a></li>
-                <li><a href="{% url 'home' %}">Contact</a></li>
+                <li><a href="{% url 'home' %}" class="main-menu-links">Home</a></li>
+                <li><a href="{% url 'about' %}" class="main-menu-links">About</a></li>
+                <li><a href="{% url 'contact' %}" class="main-menu-links">Contact</a></li>
             </ul>
             <a href="{% url 'super_admin_dashboard' %}" class="login">Login</a>
         </div>
@@ -21,8 +21,18 @@
 </header>
 
 <script>
+    const mainMenu = document.getElementById('main-menu');
+    const mainMenuLinks = document.querySelectorAll('.main-menu-links');
+    mainMenuLinks.forEach((e) => {
+        console.log(window.location.href);
+        console.log(e.href);
+        if(e.href === window.location.href){
+            e.classList.add('active');
+        }else{
+            e.classList.remove('active');
+        }
+    });
     function show_menu(e){
-        const mainMenu = document.getElementById('main-menu');
         mainMenu.classList.toggle('show-main-menu');
     }
 </script>
