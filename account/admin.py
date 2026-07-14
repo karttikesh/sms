@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 
-from .models import User
+from .models import User, UserRole
 
 @admin.register(User)
 class UserAdmin(UserAdmin):
@@ -18,7 +18,7 @@ class UserAdmin(UserAdmin):
     fieldsets = (
         (None,               {'fields': ('username', 'password')}),
         ('Personal info',    {'fields': ('name','mobile','email')}),
-        ('Permissions',      {'fields': ('is_active','is_staff',)}),
+        ('Permissions',      {'fields': ('is_active','is_staff','role')}),
         ('Groups & perms',   {'fields': ('groups','user_permissions')}),
         ('Important dates',  {'fields': ('last_login',)}),
     )
@@ -26,8 +26,12 @@ class UserAdmin(UserAdmin):
     add_fieldsets = (
         (None, {
             'classes': ('wide',),
-            'fields': ('username','mobile','email','name','password1','password2','is_active',
-                       'is_staff',)},
+            'fields': ('name','email','mobile','username','password1','password2','is_active',
+                       'is_staff','role',)},
         ),
     )
     filter_horizontal = ('groups','user_permissions')
+    
+@admin.register(UserRole)
+class UserRoleAdmin(admin.ModelAdmin):
+    list_display = ('role','description')
