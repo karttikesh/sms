@@ -1,4 +1,6 @@
-*/__pycache__/
+# Ignore Python bytecode cache
+**/__pycache__/
+*.py[cod]
 node/node_modules/
 node/package-lock.json
 node/package.json
