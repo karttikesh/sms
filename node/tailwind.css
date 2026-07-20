@@ -10,7 +10,7 @@ h1{
 }
 
 .main-layout{
-    @apply w-full h-screen bg-amber-300 flex flex-col items-start justify-start;
+    @apply w-full h-screen flex flex-col items-start justify-start;
 }
 
 .header{
@@ -73,6 +73,91 @@ h1{
 
 .footer{
     @apply w-full;
+}
+
+
+/* Utility */
+/* Button */
+.btn{
+    @apply px-4 py-2 rounded shadow m-2 font-bold cursor-pointer transition-all duration-300 ease-in-out;
+}
+
+.btn-primary{
+    @apply bg-blue-800 hover:bg-blue-900 text-gray-100;
+}
+
+.btn-success{
+    @apply bg-green-800 hover:bg-green-900 text-gray-100;
+}
+
+.btn-warning{
+    @apply bg-amber-800 hover:bg-amber-900 text-gray-100;
+}
+
+.btn-danger{
+    @apply bg-red-800 hover:bg-red-900 text-gray-100;
+}
+
+.btn-light{
+    @apply bg-gray-50 hover:bg-gray-100 text-black;
+}
+
+/* TEXT */
+.text-primary{
+    @apply text-blue-800;
+}
+
+.text-success{
+    @apply text-green-800;
+}
+
+.text-warning{
+    @apply text-amber-800;
+}
+
+.text-danger{
+    @apply text-red-800;
+}
+
+.text-light{
+    @apply text-gray-100;
+}
+
+/* Forms */
+.form{
+    @apply my-4 mx-auto;
+}
+
+.form label{
+    @apply block pl-4 mb-1 font-bold;
+}
+
+.form input,
+.form select,
+.form textarea
+{
+    @apply w-full mb-4 px-4 py-2 rounded-lg border;
+    &:focus{
+        @apply bg-gray-200;
+    }
+}
+
+.input-error p{
+    @apply mb-1 text-red-800;
+}
+
+
+/* Messages */
+.notification{
+    @apply w-3/4 lg:w-1/2 mt-4 mb-1 mx-auto;
+}
+
+.notification .message{
+    @apply font-bold;
+}
+
+.notification .message-success{
+    @apply py-2 px-3 bg-green-200 text-green-900 border-2 border-green-900 rounded;
 }
 
 

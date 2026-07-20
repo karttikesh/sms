@@ -1,6 +1,25 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from .forms import UserCreateForm
+from .models import UserRole
+from django.contrib import messages
 
 # Create your views here.
+def create_account(request):
+    if request.method == 'POST':
+        form = UserCreateForm(request.POST)
+        if form.is_valid():
+            password = form.cleaned_data.get('password')
+            user = form.save(commit=False)
+            user.role = UserRole.objects.get(id=1)
+            user.set_password(password)
+            user.save()
+            messages.success(request, "You are successfully registered.")
+            return redirect('register_school')
+    else:
+        form = UserCreateForm()
+
+    return render(request, 'account/create_account.html', {'form':form})
+
 def super_admin_dashboard(request):
     return render(request, 'account/super_admin_dashboard.html')
 

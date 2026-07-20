@@ -1,0 +1,24 @@
+{% extends "theme/main.html" %}
+
+{% block title %}Create Account{% endblock title %}
+
+{% block content %}
+    <h1 class="text-center p-4">Create Account</h1>
+    <form method="post" class="form w-1/2">
+        {% csrf_token %}
+        {% for field in form %}
+            <label for="{{field.id_for_label}}">{{field.label}}</label>
+            {{field}}
+            {% if field.errors %}
+                <div class="input-error">
+                    {% for error in field.errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endfor %}
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary">Next</button>
+        </div>
+    </form>
+{% endblock content %}

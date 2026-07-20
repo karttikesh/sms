@@ -3,7 +3,7 @@ from django.contrib.auth.models import BaseUserManager, AbstractBaseUser, Permis
 
 # Create your models here.
 class UserManager(BaseUserManager):
-    def create_user(self, name, email, mobile, username, password=None, **extra_fields):
+    def create_user(self, name, email, mobile, username, password=None):
         if not email:
             raise ValueError("The Email field must be set.")
         
@@ -24,7 +24,13 @@ class UserManager(BaseUserManager):
         if extra_fields.get('is_superuser') is not True:
             raise ValueError('Superuser must have is_superuser=True')
         
-        return self.create_user(name, email, mobile, username, password, **extra_fields)
+        user = self.model(name=name, email=email, mobile=mobile, username=username)
+        user.set_password(password)
+        user.is_active = False
+        user.is_superuser = True
+        user.is_staff = True
+        user.save(using=self._db)
+        return user
 
 class UserRole(models.Model):
     role = models.CharField(max_length=50, unique=True)
