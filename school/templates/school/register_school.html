@@ -4,4 +4,9 @@
 
 {% block content %}
     <h1 class="text-center my-2">Register Your School</h1>
+    <form method="post" class="form w-1/2">
+        {% csrf_token %}
+        {{form}}
+        <button type="submit">Submit</button>
+    </form>
 {% endblock content %}
